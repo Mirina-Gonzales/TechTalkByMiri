@@ -1,5 +1,79 @@
 # 2025 - Charlas Técnicas
 
+<style>
+  #talks-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+  }
+  
+  .talk-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    padding: 24px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+  }
+  
+  .talk-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+  }
+  
+  .talk-card h3 {
+    margin: 0 0 12px 0;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  
+  .talk-card .evento {
+    font-size: 13px;
+    opacity: 0.9;
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  
+  .talk-card .descripcion {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    flex-grow: 1;
+    opacity: 0.95;
+  }
+  
+  .talk-card .btn {
+    align-self: flex-start;
+    padding: 8px 16px;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid white;
+    color: white;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .talk-card .btn:hover {
+    background: white;
+    color: #667eea;
+  }
+  
+  .empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    color: #999;
+  }
+</style>
+
 <div id="talks-container"></div>
 
 <script>
@@ -10,7 +84,7 @@
       renderTalks(talks);
     } catch (error) {
       console.error('Error al cargar talks.json:', error);
-      document.getElementById('talks-container').innerHTML = '<p>No hay charlas registradas para este año.</p>';
+      document.getElementById('talks-container').innerHTML = '<div class="empty-state">No hay charlas registradas para este año.</div>';
     }
   }
 
@@ -18,54 +92,38 @@
     const container = document.getElementById('talks-container');
     
     if (talks.length === 0) {
-      container.innerHTML = '<p>No hay charlas registradas para este año.</p>';
+      container.innerHTML = '<div class="empty-state">No hay charlas registradas para este año.</div>';
       return;
     }
 
     const html = talks.map(talk => `
-      <div style="border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 20px; background: #f9f9f9;">
-        <h3 style="margin-top: 0; color: #333;">${talk.titulo}</h3>
-        <p style="color: #666; margin: 8px 0;"><strong>Fecha:</strong> ${new Date(talk.fecha).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
-        <p style="color: #666; margin: 8px 0;"><strong>Evento:</strong> ${talk.autor}</p>
-        <p style="color: #555; margin: 12px 0;">${talk.descripcion}</p>
-        ${talk.tags ? `<p style="margin: 8px 0;"><strong>Tags:</strong> ${talk.tags.map(tag => `<span style="background: #e0e0e0; padding: 2px 8px; border-radius: 4px; margin-right: 4px; font-size: 0.9em;">${tag}</span>`).join('')}</p>` : ''}
-        <div style="margin-top: 12px;">
-          ${renderContentLink(talk)}
-        </div>
+      <div class="talk-card">
+        <h3>${talk.titulo}</h3>
+        <p class="evento">🎤 ${talk.autor}</p>
+        <p class="descripcion">${talk.descripcion}</p>
+        ${renderButton(talk)}
       </div>
     `).join('');
 
     container.innerHTML = html;
   }
 
-  function renderContentLink(talk) {
-    switch(talk.tipo) {
-      case 'canva':
-        return `
-          <details>
-            <summary style="cursor: pointer; color: #0066cc; text-decoration: underline;">Ver presentación Canva</summary>
-            <div style="margin-top: 12px;">
-              <iframe loading="lazy" style="border-radius:4px" src="${talk.url}" width="100%" height="600"></iframe>
-            </div>
-          </details>
-        `;
-      case 'pdf':
-        return `<a href="${talk.url}" style="color: #0066cc; text-decoration: none; padding: 8px 16px; background: #e3f2fd; border-radius: 4px; display: inline-block;">📄 Descargar PDF</a>`;
-      case 'youtube':
-        return `
-          <details>
-            <summary style="cursor: pointer; color: #0066cc; text-decoration: underline;">Ver video</summary>
-            <div style="margin-top: 12px; position: relative; width: 100%; padding-bottom: 56.25%;">
-              <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 4px;" src="${talk.url}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-          </details>
-        `;
-      default:
-        return `<a href="${talk.url}" style="color: #0066cc; text-decoration: none; padding: 8px 16px; background: #e3f2fd; border-radius: 4px; display: inline-block;">🔗 Acceder</a>`;
+  function renderButton(talk) {
+    const icons = { canva: '🎨', pdf: '📄', youtube: '🎥', default: '🔗' };
+    const labels = { canva: 'Ver Canva', pdf: 'Descargar', youtube: 'Ver Video', default: 'Acceder' };
+    const icon = icons[talk.tipo] || icons.default;
+    const label = labels[talk.tipo] || labels.default;
+    
+    if (talk.tipo === 'canva') {
+      return `<a href="${talk.url}" target="_blank" class="btn">${icon} ${label}</a>`;
+    } else if (talk.tipo === 'pdf') {
+      return `<a href="${talk.url}" class="btn">${icon} ${label}</a>`;
+    } else if (talk.tipo === 'youtube') {
+      return `<a href="${talk.url}" target="_blank" class="btn">${icon} ${label}</a>`;
     }
+    return `<a href="${talk.url}" target="_blank" class="btn">${icon} ${label}</a>`;
   }
 
-  // Cargar charlas cuando el DOM está listo
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', loadTalks);
   } else {
