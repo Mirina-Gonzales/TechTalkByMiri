@@ -1,0 +1,42 @@
+[
+  {
+    "id": "wtm-iwd-2024",
+    "titulo": "Datos abiertos al alcance de todos: Descubre, Aprende y Transforma",
+    "descripcion": "Charla en WTM IWD 2024 Arequipa explorando cómo acceder y utilizar datos abiertos",
+    "tipo": "pdf",
+    "url": "./Datos abiertos al alcance de todos_ Descubre, Aprende y Transforma -  WTM IWD 2024  Arequipa - Mirina.pdf",
+    "autor": "WTM IWD 2024 - Arequipa"
+  },
+  {
+    "id": "transformando-datos-decisiones",
+    "titulo": "Transformando Datos en Decisiones",
+    "descripcion": "Presentación en Foro Instituto Pacachútec sobre cómo los datos impulsan decisiones empresariales",
+    "tipo": "pdf",
+    "url": "./_Transformando Datos en Decisiones_ - Foro Inst. Pacachútec.pdf",
+    "autor": "Foro Instituto Pacachútec"
+  },
+  {
+    "id": "empresas-data-driven",
+    "titulo": "¿Por qué todas las empresas quieren ser Data Driven?",
+    "descripcion": "Análisis de la transformación digital y el papel central de los datos en las estrategias empresariales",
+    "tipo": "pdf",
+    "url": "./¿POR QUÉ TODAS LAS EMPRESAS QUIEREN SER DATA DRIVEN_.pptx.pdf",
+    "autor": "Charla interna"
+  },
+  {
+    "id": "tomando-el-control-1",
+    "titulo": "Tomando el Control: Conociendo cómo Manejo mi Tiempo",
+    "descripcion": "Es una charla sobre la gestión del tiempo",
+    "tipo": "canva",
+    "url": "https://canva.link/ve2mcle9ewip3pu",
+    "autor": "Charla interna"
+  },
+  {
+    "id": "tomando-el-control-2",
+    "titulo": "Tomando el Control: Conociendo cómo Manejo mi Tiempo",
+    "descripcion": "Es una charla sobre la gestión del tiempo",
+    "tipo": "canva",
+    "url": "https://canva.link/vei2j3vk0ezuheb",
+    "autor": "Charla interna"
+  }
+]
