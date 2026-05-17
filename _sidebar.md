@@ -1,4 +1,4 @@
-- [🏠 Home](/)
+- [🏠 Home](/README)
 - [2026](/2026/README)
 - [2025](/2025/README)
 - [2024](/2024/README)
