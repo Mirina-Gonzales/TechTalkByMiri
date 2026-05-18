@@ -2,42 +2,19 @@
 
 Repositorio personal con mis presentaciones y charlas técnicas a lo largo de los años.
 
-## 📂 Estructura
 
-Las charlas se organizan por año. Cada año contiene:
-- **README.md**: Lista visual de charlas del año
-- **talks.json**: Metadatos estructurados en formato JSON
+## 👋 Sobre esta colección
 
-## 🎯 Formatos soportados
+Este repositorio recopila mis charlas técnicas y presentaciones a lo largo de los años. Aquí puedes encontrar recursos sobre diversos temas de tecnología que he compartido en diferentes eventos y plataformas.
 
-- 🎨 **Canva**: Presentaciones compartidas como embed interactivo
-- 📄 **PDF**: Documentos descargables
-- 🎥 **YouTube**: Videos embebidos
+## 🔗 Conéctate conmigo
 
-## 📝 Formato JSON
+Sígueme en mis redes y plataformas:
 
-Cada `talks.json` contiene un array de objetos con la siguiente estructura:
-
-```json
-{
-  "id": "identificador-único",
-  "titulo": "Título de la charla",
-  "descripcion": "Descripción breve de la charla",
-  "tipo": "canva|pdf|youtube",
-  "url": "https://...",
-  "autor": "Nombre del evento/organizador"
-}
-```
-
-### Ejemplos de URLs
-
-- **Canva**: `https://www.canva.com/design/DAXXX/view?utm_content=DAXXX`
-- **PDF**: Ruta relativa como `./archivo.pdf` 
-- **YouTube**: `https://www.youtube.com/watch?v=VIDEO_ID`
-
-## 🗺️ Navegación
-
-Usa el menú lateral para explorar charlas por año.
+- 💻 **Dev.to**: [dev.to/mirinagonzales](https://dev.to/mirinagonzales)
+- 📝 **Medium**: [medium.com/@mirina.gonzales](https://medium.com/@mirina.gonzales)
+- 💼 **LinkedIn**: [linkedin.com/in/mirina-gonzales-rodriguez](https://www.linkedin.com/in/mirina-gonzales-rodriguez/)
+- 📸 **Instagram**: [@mirii.101](https://www.instagram.com/mirii.101/)
 
 ---
 
