@@ -11,6 +11,7 @@ Este repositorio recopila mis charlas técnicas y presentaciones a lo largo de l
 
 Sígueme en mis redes y plataformas:
 
+- 💻 **Web Page**: [mirina-gonzales.web.app/](https://mirina-gonzales.web.app/)
 - 💻 **Dev.to**: [dev.to/mirinagonzales](https://dev.to/mirinagonzales)
 - 📝 **Medium**: [medium.com/@mirina.gonzales](https://medium.com/@mirina.gonzales)
 - 💼 **LinkedIn**: [linkedin.com/in/mirina-gonzales-rodriguez](https://www.linkedin.com/in/mirina-gonzales-rodriguez/)
